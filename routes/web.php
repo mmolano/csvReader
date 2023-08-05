@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CsvImportController;
+use App\Http\Controllers\CsvRetrieveController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,14 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/', [CsvRetrieveController::class, 'index']);
 
-Route::get('/csv', function () {
-    return view('index');
-});
 
 Route::post('/csv', [CsvImportController::class, 'import']);
 
